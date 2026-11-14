@@ -1,0 +1,373 @@
+/* =====================================================================
+   TravelSync design system — DARK theme
+   Same design tokens as theme-light.css, dark values. Selected via the
+   sidebar theme toggle (ThemeManager); default theme remains light.
+   ===================================================================== */
+.root {
+    -ts-bg:            #0D1220;
+    -ts-sidebar:       #0A0F1C;
+    -ts-surface:       #151C30;
+    -ts-surface-alt:   #1B2440;
+    -ts-input:         #101729;
+    -ts-border:        #27324F;
+    -ts-text-primary:  #E7ECF7;
+    -ts-text-secondary:#8FA0C7;
+    -ts-heading:       #FFFFFF;
+    -ts-prompt:        #55627F;
+    -ts-hover:         #26335A;
+    -ts-pressed:       #1F2A4A;
+    -ts-thumb:         #2B3757;
+    -ts-thumb-hover:   #3A4A75;
+    -ts-row-alt:       rgba(255, 255, 255, 0.025);
+    -ts-grid:          #222C47;
+
+    -ts-blue:          #4C8DFF;
+    -ts-blue-dark:     #2F6BEA;
+    -ts-blue-soft:     #1E2E52;
+    -ts-cyan:          #22D3EE;
+    -ts-cyan-soft:     #123645;
+    -ts-teal:          #2DD4BF;
+    -ts-teal-dark:     #14B8A6;
+    -ts-teal-soft:     #123B34;
+    -ts-violet:         #A78BFA;
+    -ts-violet-soft:   #2C2352;
+    -ts-amber:         #F5A623;
+    -ts-amber-soft:    #3D2E0C;
+    -ts-success:       #34D399;
+    -ts-success-soft:  #123B2C;
+    -ts-danger:        #FF5C77;
+    -ts-danger-soft:   #3B1420;
+
+    -fx-base: #151C30;
+    -fx-background: -ts-bg;
+    -fx-control-inner-background: -ts-input;
+    -fx-accent: -ts-blue;
+    -fx-focus-color: -ts-blue;
+    -fx-faint-focus-color: transparent;
+    -fx-font-family: "Segoe UI", "Inter", "Helvetica Neue", Arial, sans-serif;
+    -fx-font-size: 13px;
+    -fx-background-color: -ts-bg;
+    -fx-text-fill: -ts-text-primary;
+}
+
+
+.label { -fx-text-fill: -ts-text-primary; }
+
+/* ---------- layout shells ---------- */
+.app-shell { -fx-background-color: -ts-bg; }
+
+.sidebar {
+    -fx-background-color: -ts-sidebar;
+    -fx-border-color: transparent -ts-border transparent transparent;
+    -fx-border-width: 0 1 0 0;
+    -fx-padding: 18 12 18 12;
+}
+.topbar {
+    -fx-background-color: -ts-sidebar;
+    -fx-border-color: transparent transparent -ts-border transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 8, 0, 0, 2);
+}
+.content-area { -fx-background-color: -ts-bg; -fx-padding: 20; }
+.page-scroll, .nav-scroll, .viz-scroll, .scroll-pane { -fx-background-color: transparent; -fx-background: transparent; }
+.scroll-pane > .viewport, .scroll-pane > .corner { -fx-background-color: transparent; }
+
+/* ---------- typography ---------- */
+.sidebar-brand   { -fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: -ts-blue; }
+.sidebar-subtitle{ -fx-font-size: 11px; -fx-text-fill: -ts-text-secondary; }
+.page-title-lg, .page-title { -fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: -ts-heading; }
+.algo-title      { -fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: -ts-heading; }
+.section-title   { -fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: -ts-blue; }
+.subtle-text, .muted { -fx-text-fill: -ts-text-secondary; -fx-font-size: 12px; }
+.kv-key          { -fx-text-fill: -ts-text-secondary; -fx-font-size: 12px; -fx-font-weight: bold; }
+.result-value    { -fx-text-fill: -ts-text-primary; -fx-font-family: "Consolas", "Menlo", monospace; -fx-font-size: 13px; }
+.kpi-value       { -fx-font-size: 30px; -fx-font-weight: bold; -fx-text-fill: -ts-heading; }
+.kpi-label       { -fx-font-size: 12px; -fx-text-fill: -ts-text-secondary; }
+.explanation {
+    -fx-background-color: -ts-blue-soft;
+    -fx-background-radius: 10;
+    -fx-border-color: -ts-blue;
+    -fx-border-width: 0 0 0 4;
+    -fx-border-radius: 10;
+    -fx-padding: 10 14 10 14;
+    -fx-text-fill: -ts-text-primary;
+    -fx-font-size: 13px;
+    -fx-min-height: 44;
+    -fx-max-width: infinity;
+}
+.chip    { -fx-background-color: -ts-surface-alt; -fx-background-radius: 999; -fx-padding: 5 14; -fx-text-fill: -ts-text-primary; -fx-border-color: -ts-border; -fx-border-radius: 999; }
+.chip-ok { -fx-background-color: rgba(14,159,120,0.14); -fx-background-radius: 999; -fx-padding: 5 14; -fx-text-fill: -ts-teal-dark; -fx-font-weight: bold; }
+
+/* ---------- cards ---------- */
+.card {
+    -fx-background-color: -ts-surface;
+    -fx-background-radius: 16;
+    -fx-border-radius: 16;
+    -fx-border-color: -ts-border;
+    -fx-border-width: 1;
+    -fx-padding: 18;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.45), 14, 0, 0, 4);
+}
+.card:hover { -fx-effect: dropshadow(gaussian, rgba(59,130,246,0.18), 18, 0, 0, 6); -fx-border-color: -ts-blue; }
+.stat-card { -fx-padding: 16 18 16 18; }
+.stat-icon { -fx-font-size: 22px; }
+.stat-value { -fx-font-size: 30px; -fx-font-weight: bold; }
+.stat-caption { -fx-text-fill: -ts-text-secondary; -fx-font-size: 12px; }
+
+/* ---------- badges / pills ---------- */
+.badge         { -fx-background-radius: 999; -fx-padding: 3 10 3 10; -fx-font-size: 11px; -fx-font-weight: bold; }
+.badge-blue    { -fx-background-color: -ts-blue-soft;    -fx-text-fill: #9DC0FF; }
+.badge-teal    { -fx-background-color: -ts-teal-soft;    -fx-text-fill: #5DF0D4; }
+.badge-amber   { -fx-background-color: -ts-amber-soft;   -fx-text-fill: #F5C15A; }
+.badge-violet  { -fx-background-color: -ts-violet-soft;  -fx-text-fill: #C4B0FF; }
+.badge-success { -fx-background-color: -ts-success-soft; -fx-text-fill: #6EE7B7; }
+.badge-danger  { -fx-background-color: -ts-danger-soft;  -fx-text-fill: #FF8FA3; }
+
+/* ---------- flow chips (dashboard travel-flow animation) ---------- */
+.flow-chip {
+    -fx-background-color: -ts-surface-alt;
+    -fx-background-radius: 999;
+    -fx-border-color: -ts-border;
+    -fx-border-radius: 999;
+    -fx-padding: 9 18 9 18;
+    -fx-font-weight: bold;
+    -fx-text-fill: -ts-text-secondary;
+}
+.flow-chip-active {
+    -fx-background-color: linear-gradient(to right, -ts-teal, -ts-cyan);
+    -fx-border-color: transparent;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(20,184,166,0.45), 12, 0, 0, 3);
+}
+
+/* ---------- buttons ---------- */
+.button {
+    -fx-background-color: -ts-surface-alt;
+    -fx-text-fill: -ts-text-primary;
+    -fx-background-radius: 10;
+    -fx-border-color: -ts-border;
+    -fx-border-radius: 10;
+    -fx-padding: 8 16 8 16;
+    -fx-cursor: hand;
+}
+.button:hover { -fx-background-color: -ts-hover; }
+.button:pressed { -fx-background-color: -ts-pressed; }
+.button:disabled { -fx-opacity: 0.55; }
+
+.btn-primary, .button-primary {
+    -fx-background-color: linear-gradient(to bottom, -ts-blue, -ts-blue-dark);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-border-color: transparent;
+    -fx-background-radius: 10;
+    -fx-padding: 8 16 8 16;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(59,130,246,0.35), 10, 0, 0, 2);
+}
+.btn-primary:hover, .button-primary:hover { -fx-background-color: linear-gradient(to bottom, #5B93FF, -ts-blue); }
+.btn-primary:disabled, .button-primary:disabled { -fx-opacity: 0.55; -fx-effect: none; }
+
+.btn-secondary, .button-secondary {
+    -fx-background-color: -ts-surface-alt;
+    -fx-text-fill: -ts-text-primary;
+    -fx-background-radius: 10;
+    -fx-border-color: -ts-border;
+    -fx-border-radius: 10;
+    -fx-padding: 8 16 8 16;
+    -fx-cursor: hand;
+}
+.btn-secondary:hover, .button-secondary:hover { -fx-background-color: -ts-hover; }
+
+.button-accent {
+    -fx-background-color: rgba(14,159,120,0.12);
+    -fx-text-fill: -ts-teal-dark;
+    -fx-border-color: rgba(14,159,120,0.5);
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}
+.button-accent:hover { -fx-background-color: rgba(14,159,120,0.24); }
+.button-danger {
+    -fx-background-color: rgba(214,48,77,0.10);
+    -fx-text-fill: -ts-danger;
+    -fx-border-color: rgba(214,48,77,0.45);
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}
+
+.icon-button {
+    -fx-background-color: -ts-surface-alt;
+    -fx-background-radius: 999;
+    -fx-cursor: hand;
+    -fx-padding: 8;
+    -fx-border-color: -ts-border;
+    -fx-border-radius: 999;
+}
+.icon-button:hover { -fx-background-color: -ts-blue-soft; -fx-border-color: -ts-blue; }
+
+.theme-toggle { -fx-background-radius: 999; -fx-border-radius: 999; -fx-padding: 6 16; -fx-font-weight: bold; }
+
+.toggle-button {
+    -fx-background-color: -ts-surface-alt;
+    -fx-text-fill: -ts-text-primary;
+    -fx-background-radius: 10;
+    -fx-border-color: -ts-border;
+    -fx-border-radius: 10;
+    -fx-padding: 6 12;
+    -fx-cursor: hand;
+}
+.toggle-button:hover { -fx-background-color: -ts-hover; }
+.toggle-button:selected {
+    -fx-background-color: linear-gradient(to bottom, -ts-blue, -ts-blue-dark);
+    -fx-text-fill: white;
+    -fx-border-color: transparent;
+}
+
+/* sidebar navigation (after .button so it wins) */
+.nav-item {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-text-fill: -ts-text-secondary;
+    -fx-font-size: 13px;
+    -fx-padding: 10 14 10 14;
+    -fx-background-radius: 10;
+    -fx-cursor: hand;
+    -fx-alignment: CENTER_LEFT;
+    -fx-max-width: infinity;
+}
+.nav-item:hover { -fx-background-color: -ts-hover; -fx-text-fill: -ts-heading; }
+.nav-item-selected, .nav-item.selected {
+    -fx-background-color: linear-gradient(to right, -ts-blue-dark, -ts-blue);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(59,130,246,0.35), 10, 0, 0, 2);
+}
+
+/* ---------- inputs ---------- */
+.text-field, .search-field, .combo-box-base, .spinner, .text-area {
+    -fx-background-color: -ts-input;
+    -fx-background-radius: 10;
+    -fx-border-color: -ts-border;
+    -fx-border-radius: 10;
+    -fx-text-fill: -ts-text-primary;
+    -fx-prompt-text-fill: -ts-prompt;
+    -fx-padding: 8 12 8 12;
+    -fx-font-size: 13px;
+}
+.text-field:focused, .search-field:focused, .text-area:focused, .combo-box-base:focused { -fx-border-color: -ts-blue; }
+.text-area .content { -fx-background-color: -ts-input; -fx-background-radius: 10; }
+.check-box, .radio-button { -fx-text-fill: -ts-text-primary; }
+.check-box .box { -fx-background-color: -ts-input; -fx-border-color: -ts-border; -fx-background-radius: 4; -fx-border-radius: 4; }
+.check-box:selected .mark { -fx-background-color: -ts-blue; }
+.slider .track { -fx-background-color: -ts-border; }
+.slider .thumb { -fx-background-color: -ts-blue; }
+.combo-box-popup .list-view { -fx-background-color: -ts-surface; }
+.tooltip { -fx-background-color: #0A0F1C; -fx-text-fill: white; -fx-background-radius: 8; -fx-font-size: 12px; }
+
+/* ---------- scroll bars ---------- */
+.scroll-bar { -fx-background-color: transparent; }
+.scroll-bar:vertical .track, .scroll-bar:horizontal .track { -fx-background-color: transparent; -fx-border-color: transparent; }
+.scroll-bar .thumb { -fx-background-color: -ts-thumb; -fx-background-radius: 8; }
+.scroll-bar .thumb:hover { -fx-background-color: -ts-thumb-hover; }
+.scroll-bar > .increment-button, .scroll-bar > .decrement-button { -fx-padding: 0; -fx-background-color: transparent; }
+.scroll-bar .increment-arrow, .scroll-bar .decrement-arrow { -fx-shape: " "; -fx-padding: 0; }
+
+/* ---------- tabs ---------- */
+.tab-pane > .tab-header-area > .tab-header-background { -fx-background-color: transparent; }
+.tab-pane > .tab-header-area { -fx-padding: 0 0 10 0; }
+.tab-pane > .tab-content-area { -fx-background-color: transparent; }
+.tab-pane > .tab-header-area > .headers-region > .tab {
+    -fx-background-color: -ts-surface;
+    -fx-background-radius: 10;
+    -fx-border-color: -ts-border;
+    -fx-border-radius: 10;
+    -fx-padding: 6 6;
+}
+.tab-pane > .tab-header-area > .headers-region > .tab:hover { -fx-background-color: -ts-blue-soft; }
+.tab-pane > .tab-header-area > .headers-region > .tab:selected {
+    -fx-background-color: linear-gradient(to bottom, -ts-blue, -ts-blue-dark);
+    -fx-border-color: transparent;
+}
+.tab-pane > .tab-header-area > .headers-region > .tab .tab-label { -fx-text-fill: -ts-text-secondary; -fx-font-weight: bold; }
+.tab-pane > .tab-header-area > .headers-region > .tab:selected .tab-label { -fx-text-fill: white; }
+.tab-pane > .tab-header-area > .headers-region > .tab:selected .focus-indicator { -fx-border-color: transparent; }
+
+/* ---------- tables ---------- */
+.table-view { -fx-background-color: -ts-surface; -fx-background-radius: 12; -fx-border-color: -ts-border; -fx-border-radius: 12; }
+.table-view .column-header-background { -fx-background-color: -ts-surface-alt; -fx-background-radius: 12 12 0 0; }
+.table-view .column-header, .table-view .filler { -fx-background-color: transparent; -fx-border-color: transparent; }
+.table-view .column-header .label { -fx-text-fill: -ts-text-secondary; -fx-font-weight: bold; -fx-font-size: 11px; }
+.table-row-cell { -fx-background-color: -ts-surface; -fx-table-cell-border-color: transparent; }
+.table-row-cell:odd { -fx-background-color: -ts-row-alt; }
+.table-row-cell:hover { -fx-background-color: rgba(59,130,246,0.10); }
+.table-row-cell:selected { -fx-background-color: rgba(59,130,246,0.22); }
+.table-cell { -fx-text-fill: -ts-text-primary; -fx-border-color: transparent; }
+.table-view .placeholder .label { -fx-text-fill: -ts-text-secondary; }
+
+/* ---------- charts ---------- */
+.chart-title { -fx-text-fill: -ts-text-primary; -fx-font-size: 14px; -fx-font-weight: bold; }
+.chart-plot-background { -fx-background-color: transparent; }
+.chart-content { -fx-padding: 6; }
+.axis { -fx-tick-label-fill: -ts-text-secondary; }
+.axis-label { -fx-text-fill: -ts-text-secondary; }
+.axis:top, .axis:bottom, .axis:left, .axis:right { -fx-border-color: -ts-border; }
+.chart-vertical-grid-lines { -fx-stroke: transparent; }
+.chart-horizontal-grid-lines { -fx-stroke: -ts-grid; }
+.chart-horizontal-zero-line, .chart-vertical-zero-line { -fx-stroke: -ts-border; }
+.chart-legend { -fx-background-color: transparent; -fx-border-color: transparent; }
+.chart-legend-item { -fx-text-fill: -ts-text-primary; }
+.chart-pie-label { -fx-fill: -ts-text-primary; }
+.chart-pie { -fx-border-color: -ts-surface; }
+.chart-bar { -fx-bar-fill: -ts-blue; -fx-background-radius: 4 4 0 0; }
+.chart-series-line { -fx-stroke-width: 2.5px; }
+
+.default-color0.chart-pie, .default-color0.chart-legend-item-symbol { -fx-pie-color: -ts-amber; -fx-background-color: -ts-amber; }
+.default-color1.chart-pie, .default-color1.chart-legend-item-symbol { -fx-pie-color: -ts-blue; -fx-background-color: -ts-blue; }
+.default-color2.chart-pie, .default-color2.chart-legend-item-symbol { -fx-pie-color: -ts-teal; -fx-background-color: -ts-teal; }
+.default-color3.chart-pie, .default-color3.chart-legend-item-symbol { -fx-pie-color: -ts-danger; -fx-background-color: -ts-danger; }
+.default-color0.chart-bar { -fx-bar-fill: -ts-blue; }
+.default-color1.chart-bar { -fx-bar-fill: -ts-teal; }
+.default-color0.chart-series-line { -fx-stroke: -ts-teal; }
+.default-color1.chart-series-line { -fx-stroke: -ts-danger; }
+.default-color0.chart-line-symbol { -fx-background-color: -ts-teal, -ts-bg; }
+.default-color1.chart-line-symbol { -fx-background-color: -ts-danger, -ts-bg; }
+
+/* ---------- dialogs ---------- */
+.dialog-pane { -fx-background-color: -ts-surface; }
+.dialog-pane > .content.label { -fx-text-fill: -ts-text-primary; }
+.dialog-pane:header .header-panel { -fx-background-color: -ts-surface-alt; }
+.dialog-pane:header .header-panel .label { -fx-text-fill: -ts-heading; -fx-font-weight: bold; }
+
+/* ---------- algorithm-panel / visualizer canvas ---------- */
+.algo-panel { -fx-background-color: transparent; }
+.viz-scroll, .viz-scroll > .viewport {
+    -fx-background-color: -ts-surface;
+    -fx-border-color: -ts-border;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}
+.graph-canvas {
+    -fx-background-color: -ts-surface;
+    -fx-border-color: -ts-border;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}
+.log-panel {
+    -fx-background-color: -ts-surface-alt;
+    -fx-background-radius: 10;
+    -fx-padding: 10;
+    -fx-font-family: "Consolas", monospace;
+    -fx-font-size: 12px;
+    -fx-text-fill: -ts-text-primary;
+}
+.viz-cell           { -fx-background-radius: 6; -fx-border-radius: 6; -fx-alignment: center; -fx-font-family: "Consolas", monospace; -fx-font-size: 14px; }
+.viz-cell-compare    { -fx-background-color: -ts-amber-soft; -fx-border-color: -ts-amber; }
+.viz-cell-match      { -fx-background-color: -ts-teal-soft; -fx-border-color: -ts-teal; }
+.viz-cell-mismatch   { -fx-background-color: -ts-danger-soft; -fx-border-color: -ts-danger; }
+.viz-cell-neutral    { -fx-background-color: -ts-surface-alt; -fx-border-color: -ts-border; }
+
+/* ---------- search result rows ---------- */
+.search-result-row { -fx-background-radius: 8; }
+.search-result-row:hover { -fx-background-color: -ts-blue-soft; -fx-background-radius: 8; }
+
+/* ---------- demo mode ---------- */
+.demo-step-active { -fx-border-color: -ts-blue; -fx-border-width: 0 0 0 4; -fx-border-radius: 16; }
